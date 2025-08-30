@@ -10,8 +10,6 @@ import {
 import { getUserByEmail } from '@/lib/dal'
 import { mockDelay } from '@/lib/utils'
 import { redirect } from 'next/navigation'
-import { trace } from 'console'
-import { on } from 'events'
 
 // Define Zod schema for signin validation
 const SignInSchema = z.object({
@@ -41,7 +39,7 @@ export type ActionResponse = {
   error?: string
 }
 
-export const signIn = async (formData: FormData): Promise<ActionResponse> => {
+export const signInFn = async (formData: FormData): Promise<ActionResponse> => {
   try {
     await mockDelay(700)
 
